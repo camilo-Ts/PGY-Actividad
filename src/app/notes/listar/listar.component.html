@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis notas</ion-title>
+    <ion-button slot="end" (click)="navAgregar()" expand="block" color="success">
+      <ion-icon  name="add"></ion-icon>
+    </ion-button>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+  <ion-item *ngIf="notas.length === 0">
+    <ion-label class="texto-centrado">No hay notas disponibles</ion-label>
+  </ion-item>
+
+  <ion-list  *ngIf="notas.length > 0">
+
+    <ion-item *ngFor="let nota of notesService.obtenerNotas()">
+      <!-- <ion-label class="texto-centrado">{{nota.titulo}}</ion-label> -->
+      <ion-card>
+        <ion-card-header>
+          <!-- <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle> -->
+          <ion-card-title>{{nota.titulo}}</ion-card-title>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  {{nota.descripcion}}
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="btns-notas" size="6">
+                  <ion-button (click)="eliminarNota(nota.id)" color="danger" expand="block">
+                    Eliminar
+                  </ion-button>
+                </ion-col>
+                <ion-col class="btns-notas" size="6">
+                  <ion-button expand="block" (click)="buscarNota(nota.id)">
+                      Modificar
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            
+          </ion-card-content>
+        </ion-card-header>
+      </ion-card>
+    </ion-item>
+
+
+  </ion-list>
+
+
+</ion-content>

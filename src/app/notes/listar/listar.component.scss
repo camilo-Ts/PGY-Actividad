@@ -1,0 +1,21 @@
+ion-card{
+    width: 100%;
+}
+
+ion-card-content,
+ion-card-content ion-grid,
+ion-card-content ion-grid i-row,
+ion-card-content ion-grid ion-row ion-col{
+    padding: 0;
+    margin: 0;
+}
+
+ion-card-content ion-button{
+    width: 90%;
+}
+
+
+.btns-notas {
+    display: flex;
+    justify-content: center;
+}
